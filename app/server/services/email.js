@@ -60,8 +60,8 @@ controller.transporter = transporter;
 function sendOne(templateName, options, data, callback){
 
   if (NODE_ENV === "dev") {
-    console.log(templateName);
-    console.log(JSON.stringify(data, "", 2));
+    // console.log(templateName);
+    // console.log(JSON.stringify(data, "", 2));
   }
 
   emailTemplates(templatesDir, function(err, template){
@@ -271,7 +271,7 @@ controller.sendAcceptanceEmail = function(email, confirmBy, callback) {
       console.log('mailer error: ' + err);
     }
     if (info) {
-      console.log('mailer info: ' + info.message);
+      // console.log('mailer info: ' + info.message);
     }
     if (callback) {
       callback(err, info);

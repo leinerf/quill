@@ -19,8 +19,11 @@ var userArray = require('fs').readFileSync('accepted.txt').toString().split('\n'
       userArrayLoop(i);
       var email = userArray[i];
       UserController.admitUserByEmail(email, user, function() {
-        UserController.sendAcceptanceEmailByEmail(email, function() {
-          console.log('[' + i + '] processed: ' + email)
+        UserController.sendAcceptanceEmailByEmail(email, function(err, data) {
+          if(err) {
+            console.log(err)
+            console.log(email)
+          }
           if (i === 0) {
             console.log("Done in one second");
             setTimeout(() => process.exit(0), 5000);
